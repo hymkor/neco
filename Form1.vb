@@ -14,25 +14,17 @@
         End If
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Dim require_update = False
-        While Console.In.Peek() >= 0
-            Dim line1 As String = Console.In.ReadLine()
-            Me.AllItem.Add(line1)
-            require_update = True
-        End While
-        If require_update Then
-            DoUpdate()
-        End If
-    End Sub
-
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         DoUpdate()
     End Sub
 
     Private Sub Done()
+        Dim cout As New System.IO.BinaryWriter(Console.OpenStandardOutput())
         For Each p As ListViewItem In ListView1.SelectedItems
-            Console.WriteLine(p.Text)
+            Dim bytes As Byte() = System.Text.Encoding.UTF8.GetBytes(p.Text)
+            cout.Write(bytes)
+            cout.Write(CByte(&HD))
+            cout.Write(CByte(&HA))
         Next
         Me.Close()
     End Sub
@@ -54,7 +46,16 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Console.InputEncoding = System.Text.Encoding.UTF8
+        Dim require_update = False
+        Dim cin As New System.IO.StreamReader(Console.OpenStandardInput(), System.Text.Encoding.UTF8)
+        While cin.Peek() >= 0
+            Dim line1 As String = cin.ReadLine()
+            Me.AllItem.Add(line1)
+            require_update = True
+        End While
+        If require_update Then
+            DoUpdate()
+        End If
         Me.ListView1.Select()
     End Sub
 End Class

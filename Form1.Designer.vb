@@ -22,10 +22,8 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'TextBox1
@@ -52,10 +50,6 @@ Partial Class Form1
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -73,6 +67,5 @@ Partial Class Form1
     End Sub
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
 End Class
