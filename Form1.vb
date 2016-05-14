@@ -42,6 +42,8 @@
                 Me.ListView1.Items((index1 + 1) Mod Me.ListView1.Items.Count).Selected = True
             Case "p"c, "k"c, Chr(Asc("p"c) And &H1F)
                 Me.ListView1.Items((index1 + Me.ListView1.Items.Count - 1) Mod Me.ListView1.Items.Count).Selected = True
+            Case Chr(&H1B)
+                Me.Close()
         End Select
     End Sub
 
