@@ -5,7 +5,7 @@
         Me.ListView1.Clear()
         Dim prefix As String = Me.TextBox1.Text.ToLower()
         For Each p As String In AllItem
-            If p.ToLower().StartsWith(prefix) Then
+            If p.ToLower().Contains(prefix) Then
                 Me.ListView1.Items.Add(p)
             End If
         Next
