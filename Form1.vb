@@ -11,7 +11,6 @@
         Next
         If Me.ListView1.Items.Count > 0 Then
             Me.ListView1.Items(0).Selected = True
-            Me.ListView1.Select()
         End If
     End Sub
 
@@ -56,5 +55,6 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Console.InputEncoding = System.Text.Encoding.UTF8
+        Me.ListView1.Select()
     End Sub
 End Class
