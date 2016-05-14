@@ -8,3 +8,7 @@ The .NET GUI Version of [peco(Simplistic interactive filtering tool)](https://gi
 Caution
 -------
 - Text-Encoding is UTF8
+
+License
+-------
+- New BSD License
